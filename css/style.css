@@ -21,7 +21,7 @@ body {
 }
 
 .container{
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -162,10 +162,14 @@ p{
 .ofert{
     padding: 100px  0;
     display:flex;
+    justify-content: space-between;
+    gap:20px;
 }
 
 .ofert-img{
-    width: 400px;
+    width: calc(33.33%-20px);
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .product{
@@ -180,7 +184,7 @@ p{
 
 
 .product-1{
-    width: 400px;
+    width: 330px;
     padding: 25px 50px;
 }
 
@@ -287,16 +291,60 @@ input{
 }
 
 
-@media(max-width:991px) {
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    margin-top: 10%;
+}
+
+.close {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #ccc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+}
+@media(max-width:728px) {
     .menu {
         padding: 30px;
     }
-    
+
     .menu label {
         display: initial;
     }
 
-    .menu .navbar { 
+    .menu .navbar {
         position: absolute;
         top: 100%;
         left: 0;
@@ -313,16 +361,16 @@ input{
         display: initial;
     }
 
-    .header{
+    .header {
         min-height: 0vh;
         background-position: left bottom;
     }
-    
-    .header-content{
+
+    .header-content {
         padding: 100px 30px 50px 30px;
     }
-    
-    .header-content{
+
+    .header-content {
         width: 100%;
         text-align: center;
     }
@@ -352,18 +400,20 @@ input{
         margin-bottom: 30px;
     }
 
-    h2{
+    h2 {
         font-size: 40px;
         line-height: 50px;
     }
 
-    .ofert{
-        padding: 30px 0 30px;
+    .ofert {
         flex-direction: column;
+        padding: 30px 0;
+        gap: 20px;
     }
 
     .ofert img {
         width: 100%;
+        margin-bottom: 20px;
     }
 
     .product {
@@ -372,7 +422,7 @@ input{
 
     .product-content {
         margin: 0;
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .product-1 {
@@ -389,7 +439,7 @@ input{
         text-align: center;
     }
 
-    .news-1 , .news-2{
+    .news-1, .news-2 {
         padding: 0;
         width: 100%
     }
@@ -398,12 +448,23 @@ input{
         padding: 30px;
 
     }
+
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
-
 }
+@media (min-width: 728px) and (max-width: 1200px) {
+    .container {
+        max-width: 1000px; 
+    }
 
+    .ofert img {
+        width: calc(33.33% - 20px); 
+        margin-bottom: 20px;
+    }
 
-
+    .product-1 {
+        width: 300px; 
+    }
+}
